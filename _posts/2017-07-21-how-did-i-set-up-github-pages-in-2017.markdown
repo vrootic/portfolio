@@ -90,3 +90,15 @@ Just like following picture,
 <figcaption class="caption">GitHub Pages Settings Area</figcaption>
 
 * Then you can go to your domain and see the result.
+
+### Reference
+
+[1] [GitHub Pages](https://pages.github.com)
+
+[2] [利用Jekyll與Github Page建立自己的Dev-Blog](http://seans.tw/2016/make-own-blog-with-jekyll-and-github-page/)
+
+[3] [Github Pages + Jekyll 快速架站](http://lywdev.space/2016/08/30/create-website-with-github-and-jekyll/)
+
+[4] [Setting up GitHub Pages with Jekyll](http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html)
+
+[5] [Jekyll x Github x Blog 系列](https://rhadow.github.io/2015/02/18/Jekyll-x-Github-x-Blog-Part1/)
