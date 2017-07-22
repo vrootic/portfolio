@@ -1,6 +1,6 @@
 # main text of home
 name: Vic Yang
-bio: Like a full-stack engineer in a nutshell
+bio: A full-stack engineer in a nutshell
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -54,7 +54,7 @@ email: vrootic@gmail.com
 authors:
     vicyang:
         name: Vic Yang
-        bio: Like a full-stack engineer in a nutshell
+        bio: A full-stack engineer in a nutshell
         external-image: false
         picture: assets/images/profile.jpg
         twitter: vrootic
