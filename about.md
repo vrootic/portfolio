@@ -5,11 +5,11 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 
-I'm Vic Yang and I'm a passionate developer interested in web development, machine learning, real-time backend system and lots of stuff. I like to use Python to solve most of daily boring tasks and try to automate them.
+I'm Vic Yang and I'm a passionate developer particularly interested in web development, machine learning, real-time backend system. I like to use Python to solve most of daily boring tasks and try to automate them.
 
-I'm currently located in Irvine, CA and just finished my certificate program at UC Irvine. I have experience as a software engineer intern at IBM, Trend Micro and MSC Software. Aside from work, I would like to join conference to make friends with new people and also have given [talks](https://www.slideshare.net/vrootic) at Taipei.py meetup.
+I'm currently located in Irvine, CA and recently completed a certificate program at UC Irvine. I have experience as a software engineer intern at IBM, Trend Micro and MSC Software. I enjoy contributing to opensource community, and I have given [talks](https://www.slideshare.net/vrootic) at Taipei.py meetup. Aside from work, I join meetups and conferences to build connections with new people.
 
-If you want to contact me, just reach me via one of the following channels:
+You can reach me via one of the following channels:
 
 - via [email](mailto:vrootic@gmail.com)
 - reach out to me on [twitter](https://twitter.com/vrootic)
@@ -17,10 +17,10 @@ If you want to contact me, just reach me via one of the following channels:
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>HTML - Jinja - template(Django)</li>
+	<li>HTML - Jinja - Template (Django)</li>
 	<li>Responsive (Mobile First)</li>
 	<li>CSS (Stylus, Sass)</li>
-	<li>Css Frameworks (Bootstrap)</li>
+	<li>CSS Frameworks (Bootstrap)</li>
 	<li>JavaScript</li>
 	<li>NodeJS</li>
 	<li>AngularJS - ReactJS</li>
