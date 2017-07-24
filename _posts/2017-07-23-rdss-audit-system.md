@@ -34,11 +34,11 @@ This project has several goody features including,
 <figcaption class="caption">Screenshot 1</figcaption>
 <br/>
 
-<img src="{{site.url}}/assets/images/2017-07-23-rdss-audit-system/1.png">
+<img src="{{site.url}}/assets/images/2017-07-23-rdss-audit-system/2.png">
 <figcaption class="caption">Screenshot 2</figcaption>
 <br/>
 
-<img src="{{site.url}}/assets/images/2017-07-23-rdss-audit-system/1.png">
+<img src="{{site.url}}/assets/images/2017-07-23-rdss-audit-system/3.png">
 <figcaption class="caption">Screenshot 3</figcaption>
 <br/>
 
