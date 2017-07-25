@@ -14,7 +14,7 @@ description:
 ---
 
 
-## Django with AJAX update
+
 
 When I was developing Django application, I need a feature that doesn't require browser to refresh. Therefore, one way to achieve this feature is to use AJAX. When developing Django application, I think I wrote a sample code here for future reference.
 

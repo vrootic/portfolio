@@ -13,12 +13,12 @@ description:
 ---
 
 
-### Just found some tricks to show/hide Mac files
+Just found some tricks to show/hide Mac files
 
-defaults write com.apple.finder AppleShowAllFiles YES
+	defaults write com.apple.finder AppleShowAllFiles YES
 
-alt + right click on Finder ==> Relaunch
+	alt + right click on Finder ==> Relaunch
 
-defaults write com.apple.finder AppleShowAllFiles NO
+	defaults write com.apple.finder AppleShowAllFiles NO
 
-alt + right click on Finder ==> Relaunch
+	alt + right click on Finder ==> Relaunch

@@ -11,7 +11,7 @@ author: vicyang
 description: 
 ---
 
-## I saw a blog which talked about how to make a css triangle.
+I saw a blog which talked about how to make a css triangle.
 Through simple box model, we could build css triangle.
 
 Here is my note.

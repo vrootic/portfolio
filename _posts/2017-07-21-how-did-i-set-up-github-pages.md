@@ -13,10 +13,11 @@ description:
 ---
 
 
+This should be the first post that listing how I set up GitHub Pages in 2017.
 
-# How did I set up GitHub Pages
+There are a lot of tutorials out there and I just want to contribute one today. There is a [StaticGen](https://www.staticgen.com) that tells you which static site generator is the most used. 
 
-There are a lot of tutorials out there and I just want to contribute one today. There is a [StaticGen](https://www.staticgen.com) that tells you which static site generator is the most used. In 2015, I have tried [Hugo](http://gohugo.io/) in the first place. It was really nice, and there are a lot of blogs that tell you why they changed from Jekyll to Hugo or other static site generator. I'm not here to tell you which one is better, I just want to tell you how I set up Jekyll. If you tried to deploy on GitHub, I think Jekyll is still a good static site generator to use.
+In 2015, I have tried [Hugo](http://gohugo.io/) in the first place. It was really nice, and there are a lot of blogs that tell you why they changed from Jekyll to Hugo or other static site generator. I'm not here to tell you which one is better, I just want to tell you how I set up Jekyll. If you tried to deploy on GitHub, I think Jekyll is still a good static site generator to use.
 
 ### Prerequisite
 
@@ -104,3 +105,5 @@ Just like the following picture.
 [4] [Setting up GitHub Pages with Jekyll](http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html)
 
 [5] [Jekyll x Github x Blog 系列](https://rhadow.github.io/2015/02/18/Jekyll-x-Github-x-Blog-Part1/)
+
+[6] [Extending Layouts in Jekyll](http://chaosmail.github.io/programming/2014/07/16/extending-layouts-in-jekyll/)

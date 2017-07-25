@@ -13,7 +13,6 @@ author: vicyang
 description: 
 ---
 
-## Matplotlib Introduction and Using
 
 This slides is made for Taipei.py meetup. In this talk, I gave base knowledge how to use Matplotlib and gave some exercises in order to let readers understand what and why they need to know this knowledge before applying it.
 
