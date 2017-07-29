@@ -63,7 +63,7 @@ I put the response in BeautifulSoup and got parsed HTML. What I really need is t
 <figcaption class="caption">Result Example</figcaption>
 <br/>
 
-From this code, I got 10 only jobs list on my terminal. There must be something wrong, and then I realized I only parsed **one page**.
+From this code, I got only 10 jobs listed on my terminal. There must be something wrong, and then I realized I only parsed **one page**.
 
 Next part, I would use generator to generate different url.
 
