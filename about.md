@@ -5,9 +5,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 
-I'm Vic Yang and I'm a passionate developer particularly interested in web development, machine learning, real-time backend system. I like to use Python to solve most of daily boring tasks and try to automate them.
-
-I'm currently located in Irvine, CA and recently completed a certificate program at UC Irvine. I have experience as a software engineer intern at IBM, Trend Micro and MSC Software. I enjoy contributing to opensource community, and I have given [talks](https://www.slideshare.net/vrootic) at Taipei.py meetup. Aside from work, I join meetups and conferences to build connections with new people.
+I'm Vic Yang. I'm a backend engineer with web front-end, mobile development and devops experience. Supportive and active team player dedicated to efficiently resolving issues. Developing maintainable and robust infrastructure in enterprise. Taking security, performance, automation and integration as principles when developing product. 
 
 You can reach me via one of the following channels:
 
@@ -17,24 +15,15 @@ You can reach me via one of the following channels:
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>HTML - Jinja - Template (Django)</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass)</li>
-	<li>CSS Frameworks (Bootstrap)</li>
-	<li>JavaScript</li>
-	<li>NodeJS</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Gulp</li>
-	<li>Git</li>
-	<li>Python</li>
-	<li>C</li>
-	<li>C++</li>
-	<li>Ruby</li>
 	<li>Golang</li>
-	<li>C#</li>
-	<li>MySQL - PostgreSQL - MongoDB</li>
+	<li>Python</li>
+	<li>C/C++</li>
+	<li>MySQL - PostgreSQL - Redis</li>
+	<li>Git</li>
+	<li>Google Cloud Platform</li>
+	<li>Docker/Kubernetes</li>
+	<li>CI/CD</li>
 	<li>Scrum</li>
-	<li>TDD e Continuous Integration</li>
 </ul>
 
 <h2>Projects</h2>
