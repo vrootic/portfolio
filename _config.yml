@@ -16,7 +16,7 @@ resume: true
 resume-external: false
 resume-url: assets/Resume.pdf
 
-url: http://vicyang.com
+url: https://vicyang.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
