@@ -1,0 +1,54 @@
+I"D
+<p>Git basic commands for my reference</p>
+
+<h2 id="initialize">Initialize</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init .
+</code></pre></div></div>
+
+<h2 id="stage">Stage</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
+</code></pre></div></div>
+
+<h2 id="commit">Commit</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -m 'msg' 							
+</code></pre></div></div>
+
+<h2 id="open-editor-to-check-this-commit">Open editor to check this commit</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit												 
+</code></pre></div></div>
+
+<h2 id="unstage">Unstage</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset           							
+</code></pre></div></div>
+
+<h2 id="return-to-the-nearest-commit">Return to the nearest commit</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset --hard &lt;sha key&gt;
+</code></pre></div></div>
+
+<h2 id="return-to-specific-version-and-commit-not-recommend">Return to specific version and commit (Not recommend)</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git revert &lt;sha key&gt;
+</code></pre></div></div>
+
+<h2 id="list-branches">List branches</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div></div>
+
+<h2 id="change-version">Change version</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout &lt;sha key&gt;
+</code></pre></div></div>
+
+<h2 id="open-a-branch-and-ride-on-it">Open a branch and ride on it</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout -b &lt;branchname&gt; 
+</code></pre></div></div>
+
+<h2 id="branch-commit">Branch commit</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout &lt;sha key&gt;
+git checkout -b &lt;branchname&gt;
+</code></pre></div></div>
+
+<h2 id="change-master-branch">Change master branch</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout new-master
+git branch -m master old-master
+git branch -m new-master master
+</code></pre></div></div>
+:ET

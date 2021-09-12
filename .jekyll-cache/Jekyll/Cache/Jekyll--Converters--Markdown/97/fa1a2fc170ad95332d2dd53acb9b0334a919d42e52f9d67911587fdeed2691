@@ -1,0 +1,40 @@
+I"�<h2 id="rdss-audit-system">RDSS Audit System</h2>
+
+<p>This project is when I was serving in Alternative Military Service in Taiwan.</p>
+
+<p>The project accelerated my daily tasks and brought benefits to accounting room.</p>
+
+<p>This project has several goody features including,</p>
+<ul>
+  <li>Registration searching with part of information(names, ID, or echelon)</li>
+  <li>Calculate the salary for the next month</li>
+  <li>Record the base salary and automatically store records</li>
+  <li>Categorize in service/out of service people</li>
+  <li>Upload excel file from other department and audit those records</li>
+</ul>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-23-rdss-audit-system/1.png" /></p>
+<figcaption class="caption">Screenshot 1</figcaption>
+<p><br /></p>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-23-rdss-audit-system/2.png" /></p>
+<figcaption class="caption">Screenshot 2</figcaption>
+<p><br /></p>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-23-rdss-audit-system/3.png" /></p>
+<figcaption class="caption">Screenshot 3</figcaption>
+<p><br /></p>
+
+<p>–</p>
+
+<p>What has inside?</p>
+
+<ul>
+  <li>Django</li>
+  <li>JavaScript</li>
+  <li>Bootstrap</li>
+</ul>
+
+<p>–</p>
+
+:ET

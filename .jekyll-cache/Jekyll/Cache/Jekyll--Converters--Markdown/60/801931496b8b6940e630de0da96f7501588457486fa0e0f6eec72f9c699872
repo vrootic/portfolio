@@ -1,0 +1,57 @@
+I"1<p>When I was developing Django application, I need a feature that doesn’t require browser to refresh. Therefore, one way to achieve this feature is to use AJAX. When developing Django application, I think I wrote a sample code here for future reference.</p>
+
+<noscript><pre>function getCookie(name) {
+        function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie &amp;&amp; document.cookie !== &#39;&#39;) {
+        var cookies = document.cookie.split(&#39;;&#39;);
+        for (var i = 0; i &lt; cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + &#39;=&#39;)) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie(&#39;csrftoken&#39;);
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) &amp;&amp; !this.crossDomain) {
+            xhr.setRequestHeader(&quot;X-CSRFToken&quot;, csrftoken);
+        }
+    },
+});
+
+function create_post(tab) {
+  console.log(&quot;click happen&quot;);
+  console.log(tab);
+  $.ajax({
+    url: &quot;{% url &#39;projects:dashboard&#39; %}&quot;,
+    type: &quot;POST&quot;,
+    data: {
+      csrfmiddlewaretoken: csrftoken,
+      type: tab,
+    },
+    dataType: &quot;json&quot;,
+    success: function(data){
+      alert(JSON.stringify(data));
+    }
+  });
+}</pre></noscript>
+<script src="https://gist.github.com/vrootic/35bd17fc67e22592a2b6eeb50f5bd5b4.js"> </script>
+
+<h3 id="reference">Reference</h3>
+
+<p><a href="https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html">How to work with AJAX request with Django</a></p>
+
+<p><a href="https://code.djangoproject.com/wiki/AJAX">AJAX - Django</a></p>
+:ET

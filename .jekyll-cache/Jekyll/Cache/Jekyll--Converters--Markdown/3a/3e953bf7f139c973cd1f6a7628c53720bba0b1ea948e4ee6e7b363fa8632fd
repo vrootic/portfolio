@@ -1,0 +1,11 @@
+I"|<p>Just found some tricks to show/hide Mac files</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.finder AppleShowAllFiles YES
+
+alt + right click on Finder ==&gt; Relaunch
+
+defaults write com.apple.finder AppleShowAllFiles NO
+
+alt + right click on Finder ==&gt; Relaunch
+</code></pre></div></div>
+:ET

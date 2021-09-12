@@ -1,0 +1,53 @@
+I"�<h2 id="file-compare-with-reactjs">File Compare with ReactJS</h2>
+
+<p>Summary: A simple file compare tool with ReactJS</p>
+
+<h3 id="filecompare">FileCompare</h3>
+<p>Compare two Excel files</p>
+
+<h3 id="what-can-it-do-for-us">What can it do for us?</h3>
+<ol>
+  <li>Compare two Excel file (.xls or .xlsx) by selecting common attributes. If there are some different rows or duplicate rows, this program will show them for you.</li>
+  <li>The different rows can be exported as .csv file.</li>
+</ol>
+
+<h3 id="how-does-the-comparing-process-take-action">How does the comparing process take action?</h3>
+<ol>
+  <li>In the beginning, we preselect the “authentication ID” as the primary field, 
+  and the program would check whether the given fields are the same based on the primary field.</li>
+  <li>In the next version, the program will choose which field can be the primary field.</li>
+</ol>
+
+<h3 id="how-can-we-use-the-program">How can we use the program?</h3>
+<ol>
+  <li>Install Electron http://electron.atom.io</li>
+  <li>Clone this respository to local machine</li>
+</ol>
+<pre><code>git clone https://github.com/vrootic/FileCompare.git</code></pre>
+<ol>
+  <li>Execute it.</li>
+</ol>
+<pre><code>electron FileCompare</code></pre>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-23-file-compare-with-reactjs/1.png" /></p>
+<figcaption class="caption">Screenshot 1</figcaption>
+<p><br /></p>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-23-file-compare-with-reactjs/2.png" /></p>
+<figcaption class="caption">Screenshot 2</figcaption>
+<p><br /></p>
+
+<p>–</p>
+
+<p>What has inside?</p>
+
+<ul>
+  <li>Electron</li>
+  <li>ReactJS</li>
+  <li>Bootstrap</li>
+</ul>
+
+<p>–</p>
+
+<p>Check it out <a href="https://github.com/vrootic/FileCompare">here</a></p>
+:ET

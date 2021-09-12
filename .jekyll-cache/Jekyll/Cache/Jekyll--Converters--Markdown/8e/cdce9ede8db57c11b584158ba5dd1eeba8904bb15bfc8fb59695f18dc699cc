@@ -1,0 +1,217 @@
+I"f$<p>I found <strong>clicking on job posting website</strong> could be automized, so I wrote a script for crawling. Here I used Python, beautifulsoup, requests and generators tricks for practicing.</p>
+
+<p>I used Salesforce Career Page for example.</p>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-28-python-crawler-example-1/1.png" /></p>
+<figcaption class="caption">Salesforce Career Website</figcaption>
+<p><br /></p>
+
+<h2 id="where-should-i-get-started">Where should I get started?</h2>
+
+<p>I knew Google Chrome has tool to see each request sent from browser, so I used that to see the request I sent from browser. By seeing that, I could know what kind of information I can wrap in code and issue a query.</p>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-28-python-crawler-example-1/2.png" /></p>
+<figcaption class="caption">Chrome Browser Developer Tool</figcaption>
+<p><br /></p>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-28-python-crawler-example-1/3.png" /></p>
+<figcaption class="caption">Curl Example</figcaption>
+<p><br /></p>
+
+<p>I pasted on editor and saw there was a <strong>GET request</strong> sent to Salesforce server. So, all I need is use requests to send a GET request to that and I can get the result.</p>
+
+<noscript><pre>import reqeusts
+
+
+url = &#39;http://salesforce.careermount.com/candidate/job_search/quick/results&#39;
+payload = {
+    &#39;location&#39;: &#39;California&#39;,
+    &#39;keyword&#39;: &#39;software&#39;,
+    &#39;sort_dir&#39;: &#39;desc&#39;,
+    &#39;sort_field&#39;: &#39;post_date&#39;,
+    &#39;relevance&#39;: &#39;false&#39;
+}
+r = requests.get(url, params=payload)
+
+print(r.text)</pre></noscript>
+<script src="https://gist.github.com/vrootic/3144895face87e21f9616ff797c25f6b.js"> </script>
+
+<p>Apply this code would receive 403. (HTTP Code 403 - Forbidden)</p>
+
+<h2 id="what-happened-then">What happened then?</h2>
+
+<p>Apparently, it’s not enough for this request, so I guessed it required header information to send it.</p>
+
+<noscript><pre>import reqeusts
+
+
+url = &#39;http://salesforce.careermount.com/candidate/job_search/quick/results&#39;
+payload = {
+    &#39;location&#39;: &#39;California&#39;,
+    &#39;keyword&#39;: &#39;software&#39;,
+    &#39;sort_dir&#39;: &#39;desc&#39;,
+    &#39;sort_field&#39;: &#39;post_date&#39;,
+    &#39;relevance&#39;: &#39;false&#39;
+}
+
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36&#39;,
+    &#39;Cookie&#39;: &#39;__utmt=1; __utma=10312119.1119980742.1501264404.1501264404.1501264404.1; __utmb=10312119.1.10.1501264404; __utmc=10312119; __utmz=10312119.1501264404.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __atuvc=1%7C30; __atuvs=597b7a13cbbf5ab1000; JSESSIONID=D236CEC4A43668618F47703D2899E77F.node01; logged=&quot;&quot;&#39;
+}
+
+r = requests.get(url, params=payload, headers=headers)
+
+print(r.text)</pre></noscript>
+<script src="https://gist.github.com/vrootic/2e5dca03fed4787dea71bb29c7387554.js"> </script>
+
+<p>And I received 200. (HTTP Code 200 - OK)</p>
+
+<h2 id="start-analyzing-html">Start analyzing HTML</h2>
+
+<p>I put the response in BeautifulSoup and got parsed HTML. What I really need is the list of jobs. I observed that page from Chrome Developer Tool and found some important CSS tag.</p>
+
+<noscript><pre>import requests
+from bs4 import BeautifulSoup
+
+
+def get_soup(url, headers, payload):
+    total_pages = 0
+    r = requests.get(url, params=payload, headers=headers)
+    soup = BeautifulSoup(r.text, &#39;html5lib&#39;)
+    return soup
+
+def list_jobs(soup):
+    posts = soup.find(&#39;div&#39;, &#39;leftColumn&#39;).findAll(&#39;div&#39;, {&#39;class&#39;, &#39;s-res&#39;})
+    career_url = &#39;http://salesforce.careermount.com/career/&#39;
+    for p in posts:
+        print(p.find(&#39;a&#39;).text)
+        print(career_url + p.find(&#39;a&#39;)[&#39;href&#39;])
+        print(p.find(&#39;span&#39;).text)
+        print()
+        
+if __name__ == &#39;__main__&#39;:
+    url = &#39;http://salesforce.careermount.com/candidate/job_search/quick/results&#39;
+    payload = {
+        &#39;location&#39;: &#39;California&#39;,
+        &#39;keyword&#39;: &#39;software&#39;,
+        &#39;sort_dir&#39;: &#39;desc&#39;,
+        &#39;sort_field&#39;: &#39;post_date&#39;,
+        &#39;relevance&#39;: &#39;false&#39;
+    }
+    # The headers would expired sometime.
+    headers = {
+        &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36&#39;,
+        &#39;Cookie&#39;: &#39;__utmt=1; __utma=10312119.1119980742.1501264404.1501264404.1501264404.1; __utmb=10312119.1.10.1501264404; __utmc=10312119; __utmz=10312119.1501264404.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __atuvc=1%7C30; __atuvs=597b7a13cbbf5ab1000; JSESSIONID=D236CEC4A43668618F47703D2899E77F.node01; logged=&quot;&quot;&#39;
+    }
+    
+    list_jobs(get_soup(url, headers, payload))</pre></noscript>
+<script src="https://gist.github.com/vrootic/627dddeab82ae6b4617cff301c4638ea.js"> </script>
+
+<p><img src="https://vicyang.com/assets/images/2017-07-28-python-crawler-example-1/4.png" /></p>
+<figcaption class="caption">Result Example</figcaption>
+<p><br /></p>
+
+<p>From this code, I got only 10 jobs listed on my terminal. There must be something wrong, and then I realized I only parsed <strong>one page</strong>.</p>
+
+<p>Next part, I would use generator to generate different url.</p>
+
+<h2 id="generate-url-by-leveraging-generators">Generate URL by leveraging generators</h2>
+
+<p>I composed a <i>get_total_pages</i> function to get total pages. I found it’s only 10 jobs listed on one page, so I used the <i>jobnumbers</i> divided by 10 and got the result.</p>
+
+<noscript><pre>from math import ceil
+
+import requests
+from bs4 import BeautifulSoup
+
+
+def get_soup(url, headers, payload):
+    total_pages = 0
+    r = requests.get(url, params=payload, headers=headers)
+    soup = BeautifulSoup(r.text, &#39;html5lib&#39;)
+    return soup
+
+def get_total_pages(url, header, payload):
+    soup = get_soup(url, headers, payload)
+    jobstr = soup.find(&#39;div&#39;, &#39;leftColumn&#39;).find(&#39;table&#39;, {&#39;class&#39;: &#39;searchResultPages&#39;}).find(&#39;td&#39;, {&#39;class&#39;: &#39;td-result&#39;}).text
+    jobnumbers = int(jobstr.rstrip().split(&#39; &#39;)[-1])
+
+    return ceil(jobnumbers / 10)
+
+def list_jobs(soup):
+    posts = soup.find(&#39;div&#39;, &#39;leftColumn&#39;).findAll(&#39;div&#39;, {&#39;class&#39;, &#39;s-res&#39;})
+    career_url = &#39;http://salesforce.careermount.com/career/&#39;
+    for p in posts:
+        print(p.find(&#39;a&#39;).text)
+        print(career_url + p.find(&#39;a&#39;)[&#39;href&#39;])
+        print(p.find(&#39;span&#39;).text)
+        print()
+        
+def url_cat(total_pages, url):
+    yield url
+    page = 1
+    while page &lt;= total_pages:
+        yield url + str(page)
+        page += 1        
+
+if __name__ == &#39;__main__&#39;:
+    payload = {
+        &#39;location&#39;: &#39;California&#39;,
+        &#39;keyword&#39;: &#39;software&#39;,
+        &#39;sort_dir&#39;: &#39;desc&#39;,
+        &#39;sort_field&#39;: &#39;post_date&#39;,
+        &#39;relevance&#39;: &#39;false&#39;
+    }
+    # The headers would expired sometime.
+    headers = {
+        &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36&#39;,
+        &#39;Cookie&#39;: &#39;__utmt=1; __utma=10312119.1119980742.1501264404.1501264404.1501264404.1; __utmb=10312119.1.10.1501264404; __utmc=10312119; __utmz=10312119.1501264404.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __atuvc=1%7C30; __atuvs=597b7a13cbbf5ab1000; JSESSIONID=D236CEC4A43668618F47703D2899E77F.node01; logged=&quot;&quot;&#39;
+    }
+    
+    list_jobs(get_soup(url, headers, payload))
+    
+    url = &#39;http://salesforce.careermount.com/candidate/job_search/quick/results/&#39;
+
+    total_pages = get_total_pages(url, headers, payload)
+    url_gen = url_cat(total_pages, url)
+
+    for url in url_gen:
+        soup = get_soup(url, headers, payload)
+        list_jobs(soup)</pre></noscript>
+<script src="https://gist.github.com/vrootic/c7b0579e960de9092a0265e7d6fe5e7a.js"> </script>
+
+<p>The function is the logic of generator.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def url_cat(total_pages, url):
+	yield url
+	page = 1
+	while page &lt;= total_pages:
+    	yield url + str(page)
+    	page += 1
+</code></pre></div></div>
+
+<p>I used 2 <strong>yield</strong> statements because the first url has no number concatenated afterward, and then I used the second <strong>yield</strong> to generate urls.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>url_gen = url_cat(total_pages, url)
+
+for url in url_gen:
+    soup = get_soup(url, headers, payload)
+    list_jobs(soup)
+</code></pre></div></div>
+
+<p>I applied for-loop to iterate the generator.</p>
+
+<p>Now, I can get a list of information that I really wanted.</p>
+
+<p>===</p>
+
+<p>What’s inside?</p>
+
+<ul>
+  <li>Python</li>
+  <li>Generators</li>
+  <li>Requests</li>
+  <li>BeautifulSoup</li>
+</ul>
+
+:ET
